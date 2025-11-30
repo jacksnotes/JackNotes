@@ -1,0 +1,9 @@
+﻿{
+    "description":  "",
+    "devtoolsFrontendUrl":  "/devtools/inspector.html?ws=127.0.0.1:9222/devtools/page/05BF1427B8AAF2A9FD2FC36B4932F24D",
+    "id":  "05BF1427B8AAF2A9FD2FC36B4932F24D",
+    "title":  "",
+    "type":  "page",
+    "url":  "http://localhost:8080/",
+    "webSocketDebuggerUrl":  "ws://127.0.0.1:9222/devtools/page/05BF1427B8AAF2A9FD2FC36B4932F24D"
+}

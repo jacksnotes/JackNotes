@@ -1,0 +1,36 @@
+{
+  "productName": "JackNotes",
+  "appId": "com.jacknotes.app",
+  "directories": {
+    "output": "dist_electron"
+  },
+  "files": [
+    "dist_electron/**/*",
+    "node_modules/**/*",
+    "public/**/*"
+  ],
+  "win": {
+    "icon": "./public/app-icons/JackNotes.ico"
+  },
+  "mac": {
+    "icon": "./public/app-icons/JackNotes.icns"
+  },
+  "linux": {
+    "icon": "./public/app-icons/JackNotes.png",
+    "target": [
+      "AppImage",
+      "deb",
+      "snap"
+    ]
+  },
+  "asar": false,
+  "nsis": {
+    "oneClick": false,
+    "allowElevation": true,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "shortcutName": "JackNotes"
+  },
+  "publish": ["github"]
+}
