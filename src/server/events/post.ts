@@ -26,9 +26,13 @@ export default class PostEvents {
     })
 
     ipcMain.on('app-post-list-delete', async (event: IpcMainEvent, postList: IPostDb[]) => {
-      let data: any = false
+      let data: any = true
       for (const post of postList) {
-        data = posts.deletePost(post)
+        const result = await posts.deletePost(post)
+        if (!result) {
+          data = false
+          break
+        }
       }
 
       event.sender.send('app-post-list-deleted', data)

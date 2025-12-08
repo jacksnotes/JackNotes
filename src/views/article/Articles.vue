@@ -37,7 +37,7 @@
         >
           <div class="p-4 flex-1 flex">
             <div class="flex flex-shrink-0 items-center pr-4">
-              <a-checkbox @click.stop="() => {}" :checked="selectedPost.includes(post)" @change="onSelectChange(post)"></a-checkbox>
+              <a-checkbox :checked="selectedPost.includes(post)" @change="onSelectChange(post)"></a-checkbox>
             </div>
             <div class="flex-1">
               <a class="post-title block text-base text-gray-700 mb-2">{{ post.data.title }}</a>
@@ -145,7 +145,7 @@ export default class Articles extends Vue {
   }
 
   onSelectChange(post: any) {
-    const foundIndex = this.selectedPost.findIndex((item: any) => item === post)
+    const foundIndex = this.selectedPost.findIndex((item: any) => item.fileName === post.fileName)
     if (foundIndex !== -1) {
       this.selectedPost.splice(foundIndex, 1)
     } else {
@@ -215,6 +215,8 @@ export default class Articles extends Vue {
             ga.event('Post', 'Post - delete', { evLabel: this.site.setting.domain, evValue: this.selectedPost.length })
 
             this.selectedPost = []
+          } else {
+            this.$bus.$emit('snackbar-display', this.$t('deleteFailed'), 'error')
           }
         })
       },
