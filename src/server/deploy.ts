@@ -142,7 +142,7 @@ export default class Deploy extends Model {
   async deployViaApi() {
     try {
       // 使用预设的中间API地址
-      const apiUrl = 'https://api.jacknotes.qzz.io'
+      const apiUrl = 'https://api.jacknotes.dev'
       console.log('Deploying via API:', apiUrl)
 
       // 准备文件数据
@@ -227,7 +227,7 @@ export default class Deploy extends Model {
         await git.commit({
           fs,
           dir: this.outputDir,
-          message: `update from gridea: ${moment().format('YYYY-MM-DD HH:mm:ss')}`,
+          message: `Deploy from JackNotes: ${moment().format('YYYY-MM-DD HH:mm:ss')}`,
         })
       }
 

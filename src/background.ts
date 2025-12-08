@@ -102,18 +102,10 @@ async function createWindow() {
       ? path.join(__dirname, '../public/app-icons/JackNotes.icns')
       : path.join(process.resourcesPath, 'public/app-icons/JackNotes.icns')
   } else {
-    // Try favicon.ico first, fallback to JackNotes.png
-    const faviconPath = process.env.NODE_ENV === 'development'
-      ? path.join(__dirname, '../public/favicon.ico')
-      : path.join(process.resourcesPath, 'public/favicon.ico')
-    
-    if (require('fs').existsSync(faviconPath)) {
-      iconPath = faviconPath
-    } else {
-      iconPath = process.env.NODE_ENV === 'development'
-        ? path.join(__dirname, '../public/app-icons/JackNotes.png')
-        : path.join(process.resourcesPath, 'public/app-icons/JackNotes.png')
-    }
+    // Use app-icons/jacknotes.ico
+    iconPath = process.env.NODE_ENV === 'development'
+      ? path.join(__dirname, '../public/app-icons/jacknotes.ico')
+      : path.join(process.resourcesPath, 'public/app-icons/jacknotes.ico')
   }
   console.log('Icon path:', iconPath)
   console.log('Icon exists:', require('fs').existsSync(iconPath))
@@ -203,7 +195,7 @@ async function createWindow() {
       submenu: [
         {
           label: 'Learn More',
-          click() { shell.openExternal('https://github.com/getgridea/gridea') },
+          click() { shell.openExternal('https://github.com/jacksnotes/JackNotes') },
         },
       ],
     },
@@ -249,6 +241,22 @@ ipcMain.on('app-preview-open', (event, url: string) => {
         webSecurity: true,
       },
     }
+    
+    // Set icon for preview window
+    let previewIconPath: string
+    if (process.platform === 'darwin') {
+      previewIconPath = process.env.NODE_ENV === 'development' 
+        ? path.join(__dirname, '../public/app-icons/JackNotes.icns')
+        : path.join(process.resourcesPath, 'public/app-icons/JackNotes.icns')
+    } else {
+      previewIconPath = process.env.NODE_ENV === 'development'
+        ? path.join(__dirname, '../public/app-icons/jacknotes.ico')
+        : path.join(process.resourcesPath, 'public/app-icons/jacknotes.ico')
+    }
+    if (fs.existsSync(previewIconPath)) {
+      previewOpts.icon = previewIconPath
+    }
+    
     previewWin = new BrowserWindow(previewOpts)
     previewWin.once('ready-to-show', () => { previewWin.show() })
     previewWin.on('closed', () => { previewWin = null })

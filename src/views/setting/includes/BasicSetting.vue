@@ -18,7 +18,7 @@
             <a-select-option value="https://">https://</a-select-option>
             <a-select-option value="http://">http://</a-select-option>
           </a-select>
-          <a-input v-model="form.domain" placeholder="username.github.io 或 username.coding.me 或 username.gitee.io" style="width: calc(100% - 96px);" />
+          <a-input v-model="form.domain" style="width: calc(100% - 96px);" />
         </a-input-group>
       </a-form-item>
       <template v-if="['netlify'].includes(form.platform)">
@@ -31,7 +31,7 @@
           </a-input>
         </a-form-item>
         <a-form-item label=" " :labelCol="formLayout.label" :wrapperCol="formLayout.wrapper" :colon="false">
-          <a href="https://docs.jacknotes.dev" target="_blank">如何配置？</a>
+          <a href="https://jacknotes.dev/docs" target="_blank">如何配置？</a>
         </a-form-item>
       </template>
       <template v-if="['vercel'].includes(form.platform)">
@@ -47,7 +47,7 @@
           </a-input>
         </a-form-item>
         <a-form-item label=" " :labelCol="formLayout.label" :wrapperCol="formLayout.wrapper" :colon="false">
-          <a href="https://docs.jacknotes.dev" target="_blank">如何配置？</a>
+          <a href="https://jacknotes.dev/docs" target="_blank">如何配置？</a>
         </a-form-item>
       </template>
       <template v-if="['github', 'coding', 'gitee'].includes(form.platform)">

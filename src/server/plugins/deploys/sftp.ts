@@ -52,7 +52,7 @@ export default class SftpDeploy extends Model {
       connectConfig.password = setting.password
     }
 
-    const testFilename = 'gridea.txt'
+    const testFilename = 'jacknotes.txt'
     const localTestFilePath = normalizePath(path.join(this.appDir, testFilename))
     const remoteTestFilePath = normalizePath(path.join(setting.remotePath, testFilename))
 
@@ -61,7 +61,7 @@ export default class SftpDeploy extends Model {
       await client.list('/')
 
       try {
-        fse.writeFileSync(localTestFilePath, 'This is gridea test file. you can delete it.')
+        fse.writeFileSync(localTestFilePath, 'This is JackNotes test file. you can delete it.')
 
         await client.put(localTestFilePath, remoteTestFilePath)
         await client.delete(remoteTestFilePath)

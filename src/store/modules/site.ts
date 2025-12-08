@@ -33,7 +33,7 @@ const siteState: Site = {
     archivesPageSize: DEFAULT_ARCHIVES_PAGE_SIZE,
     siteName: '',
     siteDescription: '',
-    footerInfo: 'Powered by Gridea',
+    footerInfo: 'Powered by JackNotes',
     showFeatureImage: true,
     postUrlFormat: 'SLUG',
     tagUrlFormat: 'SLUG',

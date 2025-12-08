@@ -37,7 +37,7 @@ export default class App {
     this.mainWindow = setting.mainWindow
     this.app = setting.app
     this.baseDir = setting.baseDir
-    this.appDir = path.join(this.app.getPath('documents'), 'gridea')
+    this.appDir = path.join(this.app.getPath('documents'), 'jacknotes')
     this.previewServer = setting.previewServer
     this.buildDir = path.join(this.app.getPath('home'), '.jacknotes', 'output')
 
@@ -51,7 +51,7 @@ export default class App {
         archivesPageSize: DEFAULT_ARCHIVES_PAGE_SIZE,
         siteName: '',
         siteDescription: '',
-        footerInfo: 'Powered by Gridea',
+        footerInfo: 'Powered by JackNotes',
         showFeatureImage: true,
         domain: '',
         postUrlFormat: 'SLUG',

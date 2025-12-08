@@ -1,18 +1,18 @@
 ---
-title: Hello Gridea
+title: Hello JackNotes
 date: 2018-12-12
-tags: [Gridea]
+tags: [JackNotes]
 published: true
 hideInList: false
-feature: /post-images/hello-gridea.png
+feature: /post-images/hello-jacknotes.png
 ---
-👏  欢迎使用 **Gridea** ！  
-✍️  **Gridea** 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ... 
+👏  欢迎使用 **JackNotes** ！  
+✍️  **JackNotes** 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ... 
 
 <!-- more -->
 
-[Github](https://github.com/getgridea/gridea)  
-[Gridea 主页](https://gridea.dev/)  
+[Github](https://github.com/jacksnotes/JackNotes)  
+[JackNotes 主页](https://jacknotes.dev/)  
 [示例网站](https://fehey.com/)
 
 ## 特性👇
@@ -36,7 +36,7 @@ feature: /post-images/hello-gridea.png
 
 🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步  
 
-🌱 当然 **Gridea** 还很年轻，有很多不足，但请相信，它会不停向前 🏃
+🌱 当然 **JackNotes** 还很年轻，有很多不足，但请相信，它会不停向前 🏃
 
 未来，它一定会成为你离不开的伙伴
 

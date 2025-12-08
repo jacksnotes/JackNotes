@@ -21,7 +21,7 @@ export default class VercelDeploy extends Model {
     super(appInstance)
     this.apiUrl = 'https://api.vercel.com/'
     this.accessToken = appInstance.db.setting.vercelToken
-    this.projectId = appInstance.db.setting.vercelProjectId.trim()
+    this.projectId = (appInstance.db.setting.vercelProjectId || '').toString().trim()
     this.projectName = (appInstance.db.setting.vercelProjectName || '').toString().trim()
     this.inputDir = appInstance.buildDir
   }
@@ -119,7 +119,7 @@ export default class VercelDeploy extends Model {
 
       // 部署到现有项目
       const deployData = await this.request('POST', `v13/deployments?projectId=${encodeURIComponent(this.projectId)}&skipAutoDetectionConfirmation=1`, {
-        name: this.projectName || 'gridea-site',
+        name: this.projectName || 'jacknotes-site',
         files: Object.keys(files).map(filePath => ({
           file: filePath,
           data: files[filePath],

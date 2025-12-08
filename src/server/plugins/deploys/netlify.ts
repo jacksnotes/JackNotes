@@ -224,7 +224,7 @@ export default class NetlifyApi extends Model {
     return axios(endpointUrl, {
       method: 'PUT',
       headers: {
-        'User-Agent': 'Gridea',
+        'User-Agent': 'JackNotes',
         'Content-Type': 'application/octet-stream',
         'Authorization': `Bearer ${this.accessToken}`,
       },

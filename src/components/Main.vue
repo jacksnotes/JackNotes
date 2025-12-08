@@ -53,7 +53,7 @@
     </a-layout>
 
     <a-modal :visible="syncErrorModalVisible" :footer="null" @cancel="syncErrorModalVisible = false" :maskClosable="false">
-      🙁 {{ $t('syncError1') }} <a @click="openInBrowser('https://docs.jacknotes.dev')">FAQ</a> {{ $t('or') }} <a @click="openInBrowser('https://github.com/jacksnotes/JackNotes/issues')">Issues</a> {{ $t('syncError2') }}
+      🙁 {{ $t('syncError1') }} <a @click="openInBrowser('https://jacknotes.dev/docs')">FAQ</a> {{ $t('or') }} <a @click="openInBrowser('https://github.com/jacksnotes/JackNotes/issues')">Issues</a> {{ $t('syncError2') }}
     </a-modal>
 
     <a-modal title="🔥 New Version" :visible="updateModalVisible" :footer="null" @cancel="updateModalVisible = false" :maskClosable="false">
@@ -136,6 +136,8 @@ export default class App extends Vue {
   logModalVisible = false
 
   log: any = {}
+
+  previewPort: number | null = null
 
   // preview modal state (removed in favor of native preview window)
 
@@ -239,6 +241,7 @@ export default class App extends Vue {
             })
           } else {
             this.$message.success(`🎉  ${this.$t('renderSuccess')}`)
+            this.previewPort = typeof port === 'string' ? parseInt(port, 10) : port
             if (typeof port === 'number' || (typeof port === 'string' && port)) {
               const url = `http://localhost:${port}`
               try {
@@ -299,12 +302,39 @@ export default class App extends Vue {
   }
 
   goWeb() {
-    const url = this.site.setting.domain || this.site.setting.wordpressUrl
-    if (url) {
-      ga.event('Client', 'Client - open-web', { evLabel: url })
-
-      shell.openExternal(url)
+    const normalize = (raw?: string | null) => {
+      if (!raw) return ''
+      const trimmed = raw.trim()
+      if (!trimmed) return ''
+      // 先补协议
+      const candidate = /^https?:\/\//i.test(trimmed) ? trimmed : `https://${trimmed}`
+      try {
+        // URL 解析失败视为无效
+        const u = new URL(candidate)
+        // 过滤掉形如 C:\path 这种本地路径被补 https 后仍含反斜杠的情况
+        if (u.protocol.startsWith('http') && !candidate.includes('\\')) {
+          return candidate
+        }
+      } catch (e) {
+        return ''
+      }
+      return ''
     }
+
+    const configuredUrl = normalize(this.site.setting.domain || this.site.setting.wordpressUrl)
+    const isDev = process.env.NODE_ENV === 'development'
+    const previewUrl = this.previewPort ? `http://localhost:${this.previewPort}` : ''
+    const defaultUrl = isDev ? 'http://localhost:8080' : 'https://jacknotes.dev'
+
+    // 优先级：配置域名 > 预览端口 > 默认
+    const finalUrl = configuredUrl || previewUrl || defaultUrl
+    if (!finalUrl) {
+      this.$message.error('没有可用的访问地址，请先预览或配置域名')
+      return
+    }
+
+    ga.event('Client', 'Client - open-web', { evLabel: finalUrl })
+    shell.openExternal(finalUrl)
   }
 
   handleGithubClick() {
