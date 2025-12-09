@@ -7,7 +7,7 @@
   <h3 align="center">A static blog writing client</h3>
 
    **Notice**: This project is based on Gridea (MIT License), originally developed by EryouHao.  
-   It has been improved, updated and maintained under the new name JackNotes.
+   It has been improved, updated under the new name JackNotes.
 
   [Download](https://github.com/jacksnotes/JackNotes/releases) | [Homepage](https://jacknotes.dev/)
 
@@ -98,4 +98,4 @@ We welcome all contributions. You can submit any ideas as [pull requests](https:
 
 
 ## License
-[MIT](https://github.com/jacksnotes/JackNotes/blob/main/LICENSE). Copyright (c) 2019 EryouHao, (c) 2025 JackNotes Contributors
+[MIT](https://github.com/jacksnotes/JackNotes/blob/main/LICENSE). Copyright (c) 2025 JackNotes Contributors

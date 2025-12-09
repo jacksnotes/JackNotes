@@ -55,7 +55,11 @@ export default class Tags extends Model {
 
     const tags = [...newUsedTags, ...existUsedTags, ...unusedTags]
 
-    this.$posts.set('tags', tags).write()
+    try {
+      this.$posts.set('tags', tags).write()
+    } catch (e) {
+      console.log('Failed to save tags cache', e)
+    }
   }
 
   async list() {

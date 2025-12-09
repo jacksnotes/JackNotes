@@ -132,7 +132,11 @@ ${postMatter.content}`
 
     list.sort((a: any, b: any) => moment(b.data.date).unix() - moment(a.data.date).unix())
 
-    this.$posts.set('posts', list).write()
+    try {
+      this.$posts.set('posts', list).write()
+    } catch (e) {
+      console.log('Failed to save posts cache', e)
+    }
     return true
   }
 

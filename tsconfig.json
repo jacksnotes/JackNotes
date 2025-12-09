@@ -13,6 +13,7 @@
     "baseUrl": ".",
     "skipLibCheck": true,
     "allowJs": true,
+    "noEmit": true,
     "types": [
       "webpack-env"
     ],
@@ -20,7 +21,9 @@
       "@/*": [
         "src/*"
       ],
-      "*": ["node_modules/*"]
+      "*": [
+        "node_modules/*"
+      ]
     },
     "lib": [
       "esnext",

@@ -8,9 +8,11 @@ assignees: ''
 ---
 
 <!--
-  你好！感谢你正在考虑为 Gridea 提交一个 bug。请花一点点时间尽量详细地回答以下基础问题。
+  你好！感谢你正在考虑为 JackNotes
+请花一点点时间尽量详细地回答以下基础问题。
 
-  如果你不确定这是一个 Gridea 的 bug，请加入我们的用户群去讨论。
+  如果你不确定这是一个 JackNotes
+我们的用户群去讨论。
 
   谢谢！
 -->
@@ -18,10 +20,11 @@ assignees: ''
 <!-- 
   请确认你已经做了下面这些事情，若 bug 还是显而易见的，尽可详细地描述你的问题。
 
-  - 我已经安装了最新版的 Gridea
+  - 我已经安装了最新版的 JackNotes
   - 我已经搜索了已有的 Issues列表
-  - 我已经阅读了 Gridea 的 FAQ：https://gridea.dev/docs/faq.html
-  - 我已经查看了上手教程（视频或文字）：https://gridea.dev/docs
+  - 我已经阅读了 JackNotes
+  - 我已经阅读了上手教程
+  - 我已经查看了上手教程（视频或文字）：https://JackNotes.dev/docs
 -->
 
 ## 我的环境

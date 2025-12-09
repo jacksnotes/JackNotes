@@ -2,7 +2,7 @@
   "productName": "JackNotes",
   "appId": "com.jacknotes.app",
   "directories": {
-    "output": "dist_electron"
+    "output": "dist_electron2"
   },
   "files": [
     "dist_electron/**/*",
@@ -10,10 +10,14 @@
     "public/**/*"
   ],
   "win": {
-    "icon": "./public/app-icons/JackNotes.ico"
+    "icon": "./public/app-icons/client-256.ico",
+    "target": "zip"
   },
   "mac": {
-    "icon": "./public/app-icons/JackNotes.icns"
+    "icon": "./public/app-icons/jacksnotes.icns",
+    "target": [
+      "zip"
+    ]
   },
   "linux": {
     "icon": "./public/app-icons/JackNotes.png",
@@ -23,7 +27,7 @@
       "snap"
     ]
   },
-  "asar": false,
+  "asar": true,
   "nsis": {
     "oneClick": false,
     "allowElevation": true,
@@ -32,5 +36,7 @@
     "createStartMenuShortcut": true,
     "shortcutName": "JackNotes"
   },
-  "publish": ["github"]
+  "publish": {
+    "provider": "github"
+  }
 }

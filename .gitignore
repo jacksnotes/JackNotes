@@ -23,12 +23,6 @@ yarn-error.log*
 #Electron-builder output
 /dist_electron
 
-# Web project (separate repository)
-/web
-
-# Deploy API (contains sensitive configs)
-/deploy-api
-
 # Error logs
 *.err
 

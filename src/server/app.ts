@@ -116,6 +116,7 @@ export default class App {
    *  Load site config and data
    */
   public async loadSite() {
+    console.log('loadSite called')
     const postsInstance = new Posts(this)
     const posts = await postsInstance.list()
 
@@ -149,6 +150,8 @@ export default class App {
       commentSetting: commentSetting || this.db.commentSetting,
     }
     this.updateStaticServer()
+    const renderer = new Renderer(this)
+    await renderer.preview()
     this.initEvents()
     return {
       ...this.db,
@@ -165,6 +168,7 @@ export default class App {
   }
 
   public async saveSourceFolderSetting(sourceFolderPath: string = '') {
+    console.log('saveSourceFolderSetting called with', sourceFolderPath)
     try {
       const appConfigFolder = path.join(this.app.getPath('home'), '.jacknotes')
       const appConfigPath = path.join(appConfigFolder, 'config.json')

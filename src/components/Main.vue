@@ -37,7 +37,7 @@
         </a-button>
         <div class="version-container" :class="{ 'version-dot': hasUpdate }">
           <i class="ri-equalizer-line text-base" @click="systemModalVisible = true"></i>
-          <i class="ri-earth-line web-btn" @click="goWeb" v-if="site.setting.domain || site.setting.wordpressUrl"></i>
+          <i class="ri-earth-line web-btn" @click="goWeb"></i>
           <a-tooltip :title="`🌟 ${$t('starSupport')}`">
             <i class="ri-github-line text-base" @click="handleGithubClick"></i>
           </a-tooltip>
