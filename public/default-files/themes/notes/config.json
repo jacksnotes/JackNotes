@@ -175,6 +175,22 @@
       "group": "SEO",
       "value": "",
       "type": "input"
+    },
+    {
+      "name": "sidebarLeftTitle",
+      "label": "Left Sidebar Title",
+      "group": "侧边栏",
+      "value": "文章目录",
+      "type": "input",
+      "note": "左侧边栏标题（如：Articles / 文章目录）"
+    },
+    {
+      "name": "sidebarRightTitle",
+      "label": "Right Sidebar Title",
+      "group": "侧边栏",
+      "value": "最新文章",
+      "type": "input",
+      "note": "右侧边栏标题（如：Recent Posts / 最新文章）"
     }
   ]
 }

@@ -14,6 +14,7 @@ import MarkdownItImplicitFigures from 'markdown-it-implicit-figures'
 const markdownIt = new MarkdownIt({
   html: true,
   breaks: true,
+  linkify: true,
 })
 
 const BAD_PROTO_RE = /^(vbscript|javascript|data):/

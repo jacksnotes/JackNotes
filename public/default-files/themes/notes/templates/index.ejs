@@ -1,19 +1,29 @@
 <html>
-  <head>
-    <%- include('./includes/head', { siteTitle: themeConfig.siteName }) %>
+
+<head>
+  <%- include('./includes/head', { siteTitle: themeConfig.siteName }) %>
     <meta name="description" content="<%- site.customConfig.metaDescription || themeConfig.siteDescription %>" />
-  </head>
-  <body>
-    <div class="main">
-      <div class="main-content">
-        <%- include('./includes/header') %>
-    
-        <%- include('./includes/post-list') %>
-    
-        <%- include('./includes/pagination') %>
-    
+</head>
+
+<body>
+  <div class="main">
+    <div class="main-content">
+      <%- include('./includes/header') %>
+
+        <div class="content-wrapper">
+          <%- include('./includes/sidebar-left') %>
+
+            <div class="content-main">
+              <%- include('./includes/post-list') %>
+                <%- include('./includes/pagination') %>
+            </div>
+
+            <%- include('./includes/sidebar-right') %>
+        </div>
+
         <%- include('./includes/footer') %>
-      </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

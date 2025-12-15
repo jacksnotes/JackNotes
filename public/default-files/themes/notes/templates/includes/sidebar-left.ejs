@@ -1,0 +1,18 @@
+<aside class="sidebar sidebar-left">
+    <div class="sidebar-section">
+        <h3 class="sidebar-title">
+            <i class="sidebar-icon">📚</i>
+            <%= site.customConfig.sidebarLeftTitle || '文章目录' %>
+        </h3>
+        <div class="article-list">
+            <% var allPosts=site.posts.filter(function(p) { return !p.hideInList; }); allPosts.forEach(function(post) {
+                %>
+                <a href="<%= post.link %>" class="article-item">
+                    <span class="article-item-title">
+                        <%= post.title %>
+                    </span>
+                </a>
+                <% }); %>
+        </div>
+    </div>
+</aside>

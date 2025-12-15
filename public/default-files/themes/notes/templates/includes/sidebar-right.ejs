@@ -1,0 +1,28 @@
+<aside class="sidebar sidebar-right">
+    <div class="sidebar-section">
+        <h3 class="sidebar-title">
+            <i class="sidebar-icon">📝</i>
+            <%= site.customConfig.sidebarRightTitle || '最新文章' %>
+        </h3>
+        <div class="recent-posts">
+            <% var recentPosts=site.posts.filter(function(p) { return !p.hideInList; }).slice(0, 5);
+                recentPosts.forEach(function(post) { %>
+                <a href="<%= post.link %>" class="recent-post-item">
+                    <% if (themeConfig.showFeatureImage && post.feature) { %>
+                        <div class="recent-post-image" style="background-image: url('<%= post.feature %>')"></div>
+                        <% } else { %>
+                            <div class="recent-post-image recent-post-image-placeholder"></div>
+                            <% } %>
+                                <div class="recent-post-info">
+                                    <h4 class="recent-post-title">
+                                        <%= post.title %>
+                                    </h4>
+                                    <span class="recent-post-date">
+                                        <%= post.dateFormat %>
+                                    </span>
+                                </div>
+                </a>
+                <% }); %>
+        </div>
+    </div>
+</aside>

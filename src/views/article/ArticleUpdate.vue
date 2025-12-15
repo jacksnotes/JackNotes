@@ -64,6 +64,11 @@
               <i class="zwicon-image"></i>
             </div>
           </a-tooltip>
+          <a-tooltip placement="left" :title="$t('insertLink')">
+            <div class="op-btn" @click="insertLink">
+              <i class="zwicon-link"></i>
+            </div>
+          </a-tooltip>
           <a-tooltip placement="left" :title="$t('insertMore')">
             <div class="op-btn" @click="insertMore">
               <i class="zwicon-more-v"></i>
@@ -580,6 +585,20 @@ export default class ArticleUpdate extends Vue {
     }])
 
     ga.event('Post', 'Post - click-add-more', {})
+  }
+
+  insertLink() {
+    const selection = this.$refs.monacoMarkdownEditor.editor.getSelection()
+    const selectedText = this.$refs.monacoMarkdownEditor.editor.getModel().getValueInRange(selection)
+    const linkText = selectedText || 'link text'
+    const markdownLink = `[${linkText}](https://)`
+
+    this.$refs.monacoMarkdownEditor.editor.getModel().applyEdits([{
+      range: selection,
+      text: markdownLink,
+    }])
+
+    ga.event('Post', 'Post - click-insert-link', {})
   }
 
   handleEmojiSelect(emoji: any) {

@@ -9,7 +9,8 @@ import {
   Vue, Component, Prop, Watch, Model,
 } from 'vue-property-decorator'
 import VEmojiPicker from 'v-emoji-picker'
-import packData from 'v-emoji-picker/data/emojis.json'
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const packData = require('v-emoji-picker/data/emojis.json').data
 
 @Component({
   components: {

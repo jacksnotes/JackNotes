@@ -1,28 +1,31 @@
-<div class="post-container">
+<div class="post-grid">
   <% posts.forEach(function(post) { %>
-    <article class="post">
-      <a href="<%= post.link %>">
-        <h2 class="post-title"><%= post.title %></h2>
-      </a>
-      <div class="post-info">
-        <span>
-          <%= post.dateFormat %>
-        </span>
-        <span>
-          <%= post.stats.text %>
-        </span>
-        <% post.tags.forEach(function(tag) { %>
-          <a href="<%= tag.link %>" class="post-tag">
-            # <%= tag.name %>
-          </a>
-        <% }); %>
-      </div>
+    <article class="post-card">
       <% if (themeConfig.showFeatureImage && post.feature) { %>
-        <a href="<%= post.link %>" class="post-feature-image" style="background-image: url('<%= post.feature %>')">
+        <a href="<%= post.link %>" class="post-card-image" style="background-image: url('<%= post.feature %>')">
+        </a>
+      <% } else { %>
+        <a href="<%= post.link %>" class="post-card-image post-card-image-placeholder">
         </a>
       <% } %>
-      <div class="post-abstract">
-        <%- post.abstract %>
+      <div class="post-card-content">
+        <div class="post-card-tags">
+          <% post.tags.forEach(function(tag) { %>
+            <a href="<%= tag.link %>" class="post-card-tag">
+              <%= tag.name %>
+            </a>
+          <% }); %>
+        </div>
+        <a href="<%= post.link %>">
+          <h2 class="post-card-title"><%= post.title %></h2>
+        </a>
+        <div class="post-card-abstract">
+          <%- post.abstract %>
+        </div>
+        <div class="post-card-meta">
+          <span class="post-card-time"><%= post.stats.text %></span>
+          <span class="post-card-date"><%= post.dateFormat %></span>
+        </div>
       </div>
     </article>
   <% }); %>

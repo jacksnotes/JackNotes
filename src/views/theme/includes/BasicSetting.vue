@@ -10,9 +10,6 @@
                   <div class="theme-name">{{ item.name }}</div>
                   <div class="theme-version" v-if="item.version">{{ item.version }}</div>
                 </div>
-                <div class="extra" v-if="item.repository">
-                  <a-button @click.stop="openPage(item.repository)" type="dashed" shape="circle" size="small" icon="github"></a-button>
-                </div>
               </div>
             </a-select-option>
             <div slot="dropdownRender" slot-scope="menu">
